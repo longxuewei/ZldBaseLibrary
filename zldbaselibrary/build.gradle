@@ -36,6 +36,7 @@ dependencies {
 
     //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
     //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
+    //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
     implementation 'androidx.appcompat:appcompat:1.3.1'
     implementation 'com.google.android.material:material:1.2.1'
     testImplementation 'junit:junit:4.+'

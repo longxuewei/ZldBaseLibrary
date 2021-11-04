@@ -68,5 +68,7 @@ dependencies {
     //MVVM框架及网络请求【https://github.com/hegaojian/JetpackMvvm】
     api 'com.github.hegaojian:JetpackMvvm:1.2.5'
 
+    //弹框【https://github.com/kongzue/DialogX】
+    api 'com.github.kongzue.DialogX:DialogX:0.0.43.beta19'
 
 }

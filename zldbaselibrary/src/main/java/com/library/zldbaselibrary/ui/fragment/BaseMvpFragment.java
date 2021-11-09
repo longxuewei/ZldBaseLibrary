@@ -1,7 +1,8 @@
-package com.library.zldbaselibrary.ui.activity;
+package com.library.zldbaselibrary.ui.fragment;
 
 import android.content.Context;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -11,41 +12,34 @@ import com.library.zldbaselibrary.ui.dialog.CommonLoading;
 import com.library.zldbaselibrary.ui.dialog.ILoading;
 import com.library.zldbaselibrary.view.BaseView;
 
-abstract public class BaseMvpActivity<V extends BaseView, P extends BasePresenter<V>> extends BaseActivity implements BaseView {
+/**
+ * 作者：Lxw
+ * 时间：2021-11-09 16:18
+ * <p>
+ * 注释：MVP 模式下的Fragment基类，用于该类处理了最基本的 P 层和 V层的绑定以及其他基础工作，减少子类的重复性代码，所有复杂（需要使用MVP分层）的页面
+ * 都应该集成该类。
+ */
+public abstract class BaseMvpFragment<V extends BaseView, P extends BasePresenter<V>> extends BaseFragment implements BaseView {
 
-
-    /** 加载框样式；如子类有特殊样式，请覆盖 {@link BaseMvpActivity#initLoading()} 以自定义 */
+    /** 加载框样式；如子类有特殊样式，请覆盖 {@link BaseMvpFragment#initLoading()} 以自定义 */
     private ILoading mLoading;
 
     /** P层引用；用于处理界面逻辑 */
     P mPresenter;
 
     @Override
-    protected void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-
-        //子类返回界面
-        setContentView(layoutId());
-
-        //初始化默认的加载框样式
-        mLoading = initLoading();
+    public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
 
         //实例化Presenter层
         mPresenter = initPresenter();
         mPresenter.attach((V) this);
 
-        //开始初始化界面
-        initView(savedInstanceState);
+        //调用父类初始化视图
+        super.onViewCreated(view, savedInstanceState);
+
+        //初始化默认的加载框样式
+        mLoading = initLoading();
     }
-
-
-    /**
-     * 默认的加载框样式/如需使用自定义的样式请付盖此方法
-     */
-    public ILoading initLoading() {
-        return new CommonLoading();
-    }
-
 
     /**
      * 初始化Presenter逻辑层
@@ -57,24 +51,10 @@ abstract public class BaseMvpActivity<V extends BaseView, P extends BasePresente
 
 
     /**
-     * 初始化控件，子类可在此进行视图初始化。
-     *
-     * @param savedInstanceState 页面回收的保存实例，可用于恢复页面数据。
+     * 默认的加载框样式/如需使用自定义的样式请付盖此方法
      */
-    abstract public void initView(@Nullable Bundle savedInstanceState);
-
-
-    /**
-     * 资源释放
-     */
-    @Override
-    protected void onDestroy() {
-        super.onDestroy();
-
-        //与Presenter层断开链接
-        if (mPresenter != null) {
-            mPresenter.detach();
-        }
+    public ILoading initLoading() {
+        return new CommonLoading();
     }
 
 
@@ -111,6 +91,19 @@ abstract public class BaseMvpActivity<V extends BaseView, P extends BasePresente
     public void showMsg(@NonNull String msg) {
         if (mLoading != null) {
             mLoading.showMsg(msg);
+        }
+    }
+
+
+    /**
+     * 资源释放
+     */
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        //与Presenter层断开链接
+        if (mPresenter != null) {
+            mPresenter.detach();
         }
     }
 }

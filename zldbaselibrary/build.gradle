@@ -3,7 +3,7 @@ plugins {
 }
 
 apply plugin: 'com.github.dcendents.android-maven'
-group='cn.zld.baselibrary'
+group = 'cn.zld.baselibrary'
 
 android {
     compileSdkVersion 30
@@ -51,7 +51,7 @@ dependencies {
     api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.6'
 
     //下拉刷新/上拉加载更多【https://github.com/scwang90/SmartRefreshLayout】注意：下拉刷新未添加 下拉刷新头 / 上拉加载更多底部，请在App中自行添加；具体样式可以访问前面的网址
-    api  'com.scwang.smart:refresh-layout-kernel:2.0.3'
+    api 'com.scwang.smart:refresh-layout-kernel:2.0.3'
 
     //Glide【https://muyangmin.github.io/glide-docs-cn/】
     api 'com.github.bumptech.glide:glide:4.12.0'
@@ -70,5 +70,8 @@ dependencies {
 
     //弹框【https://github.com/kongzue/DialogX】
     api 'com.github.kongzue.DialogX:DialogX:0.0.43.beta19'
+
+    //约束布局【https://developer.android.google.cn/training/constraint-layout?hl=zh-cn】
+    api "androidx.constraintlayout:constraintlayout:2.1.1"
 
 }

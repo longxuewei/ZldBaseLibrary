@@ -11,9 +11,10 @@ import com.blankj.utilcode.util.ToastUtils;
 import com.kongzue.dialogx.dialogs.CustomDialog;
 import com.kongzue.dialogx.interfaces.OnBindView;
 import com.library.zldbaselibrary.R;
+import com.library.zldbaselibrary.ui.activity.BaseMvpActivity;
 
 /**
- * 基础类型弹框样式
+ * 基础类型弹框样式，要想自定义，请实现{@link ILoading}接口并复写{@link BaseMvpActivity#initLoading()}函数
  */
 public class CommonLoading implements ILoading {
 

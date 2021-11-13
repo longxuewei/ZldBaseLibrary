@@ -5,6 +5,10 @@ import android.content.Context;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.trello.rxlifecycle4.android.ActivityEvent;
+
+import io.reactivex.rxjava3.core.Observable;
+
 
 /**
  * MVP中 VIEW 的基类，所有View应当实现该类，实现最基础的3个方法
@@ -32,5 +36,14 @@ public interface BaseView {
      * @param msg 需要展示的文字信息
      */
     void showMsg(@NonNull String msg);
+
+
+    /**
+     * 将界面的生命周期事件返回给P层，方便P层在访问网络时管理请求的生命周期。
+     *
+     * @return Activity的生命周期事件
+     */
+    @NonNull
+    Observable<ActivityEvent> getLifecycleEvent();
 
 }

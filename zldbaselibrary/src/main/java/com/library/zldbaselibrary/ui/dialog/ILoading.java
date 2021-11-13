@@ -6,9 +6,12 @@ import android.content.Context;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.library.zldbaselibrary.ui.activity.BaseMvpActivity;
+
 
 /**
  * 这是加载弹框和普通文字信息展示的抽象类。如果想要展示不同样式的加载弹框可以实现该类进行自定义。
+ * 具体操作，请实现{@link ILoading}接口并复写{@link BaseMvpActivity#initLoading()}函数返回自己实现的ILoading接口
  */
 public interface ILoading {
 

@@ -65,13 +65,23 @@ dependencies {
     //键值对存储（代替SP）【https://github.com/orhanobut/hawk】
     api "com.orhanobut:hawk:2.0.1"
 
-    //MVVM框架及网络请求【https://github.com/hegaojian/JetpackMvvm】
-    api 'com.github.hegaojian:JetpackMvvm:1.2.5'
-
     //弹框【https://github.com/kongzue/DialogX】
     api 'com.github.kongzue.DialogX:DialogX:0.0.43.beta19'
 
     //约束布局【https://developer.android.google.cn/training/constraint-layout?hl=zh-cn】
     api "androidx.constraintlayout:constraintlayout:2.1.1"
+
+    //Retrofit网络框架【https://github.com/square/retrofit】
+    api "com.squareup.retrofit2:retrofit:2.9.0"
+    api "com.squareup.retrofit2:converter-gson:2.9.0"
+    api "com.squareup.retrofit2:adapter-rxjava3:2.9.0"
+
+    //RxJava3配合Retrofits使用【https://github.com/ReactiveX/RxJava】
+    api "io.reactivex.rxjava3:rxjava:3.1.2"
+    api 'io.reactivex.rxjava3:rxandroid:3.0.0'
+
+    //Rxjava的生命周期控制，防止页面销毁而Rxjava还未完成导致的内存泄漏【https://github.com/trello/RxLifecycle】
+    api 'com.trello.rxlifecycle4:rxlifecycle:4.0.2'
+    api 'com.trello.rxlifecycle4:rxlifecycle-components:4.0.2'
 
 }

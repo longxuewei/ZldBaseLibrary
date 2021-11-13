@@ -7,7 +7,8 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
+
+import com.trello.rxlifecycle4.components.RxFragment;
 
 /**
  * 作者：Lxw
@@ -15,7 +16,7 @@ import androidx.fragment.app.Fragment;
  * <p>
  * 注释：简单的一个基类，如果页面简单则可以绕过{@link BaseMvpFragment} 直接集成该类。从而实现简单的页面展示
  */
-public abstract class BaseFragment extends Fragment {
+public abstract class BaseFragment extends RxFragment {
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {

@@ -10,6 +10,9 @@ import com.library.zldbaselibrary.presenter.BasePresenter;
 import com.library.zldbaselibrary.ui.dialog.CommonLoading;
 import com.library.zldbaselibrary.ui.dialog.ILoading;
 import com.library.zldbaselibrary.view.BaseView;
+import com.trello.rxlifecycle4.android.ActivityEvent;
+
+import io.reactivex.rxjava3.core.Observable;
 
 abstract public class BaseMvpActivity<V extends BaseView, P extends BasePresenter<V>> extends BaseActivity implements BaseView {
 
@@ -18,7 +21,7 @@ abstract public class BaseMvpActivity<V extends BaseView, P extends BasePresente
     private ILoading mLoading;
 
     /** P层引用；用于处理界面逻辑 */
-    P mPresenter;
+    public P mPresenter;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -53,7 +56,7 @@ abstract public class BaseMvpActivity<V extends BaseView, P extends BasePresente
      * @return 实例化Presenter层，用于处理界面相关的逻辑
      */
     @NonNull
-    abstract P initPresenter();
+    public abstract P initPresenter();
 
 
     /**
@@ -61,7 +64,7 @@ abstract public class BaseMvpActivity<V extends BaseView, P extends BasePresente
      *
      * @param savedInstanceState 页面回收的保存实例，可用于恢复页面数据。
      */
-    abstract public void initView(@Nullable Bundle savedInstanceState);
+    public abstract void initView(@Nullable Bundle savedInstanceState);
 
 
     /**
@@ -112,5 +115,17 @@ abstract public class BaseMvpActivity<V extends BaseView, P extends BasePresente
         if (mLoading != null) {
             mLoading.showMsg(msg);
         }
+    }
+
+
+    /**
+     * 返回给Presenter层，方便Presenter层在请求网络时处理生命周期相关的问题
+     *
+     * @return Activity生命周期事件
+     */
+    @NonNull
+    @Override
+    public Observable<ActivityEvent> getLifecycleEvent() {
+        return lifecycle();
     }
 }

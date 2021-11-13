@@ -25,7 +25,7 @@ public abstract class BaseMvpFragment<V extends BaseView, P extends BasePresente
     private ILoading mLoading;
 
     /** P层引用；用于处理界面逻辑 */
-    P mPresenter;
+    public P mPresenter;
 
     @Override
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
@@ -47,7 +47,7 @@ public abstract class BaseMvpFragment<V extends BaseView, P extends BasePresente
      * @return 实例化Presenter层，用于处理界面相关的逻辑
      */
     @NonNull
-    abstract P initPresenter();
+    public abstract P initPresenter();
 
 
     /**

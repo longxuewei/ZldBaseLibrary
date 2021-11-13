@@ -1,13 +1,13 @@
 package com.library.zldbaselibrary.ui.activity;
 
+import android.app.Activity;
 import android.content.Context;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
-import com.trello.rxlifecycle4.components.support.RxAppCompatActivity;
-
-abstract public class BaseActivity extends RxAppCompatActivity {
+abstract public class BaseActivity extends AppCompatActivity {
 
     /**
      * 初始化布局ID。

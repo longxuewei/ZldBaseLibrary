@@ -6,11 +6,20 @@ import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.Lifecycle;
 
 import com.library.zldbaselibrary.presenter.BasePresenter;
 import com.library.zldbaselibrary.ui.dialog.CommonLoading;
 import com.library.zldbaselibrary.ui.dialog.ILoading;
 import com.library.zldbaselibrary.view.BaseView;
+import com.trello.lifecycle4.android.lifecycle.AndroidLifecycle;
+import com.trello.rxlifecycle4.LifecycleProvider;
+import com.trello.rxlifecycle4.LifecycleTransformer;
+import com.trello.rxlifecycle4.RxLifecycle;
+import com.trello.rxlifecycle4.android.FragmentEvent;
+
+import io.reactivex.rxjava3.core.Observable;
 
 /**
  * 作者：Lxw
@@ -92,6 +101,19 @@ public abstract class BaseMvpFragment<V extends BaseView, P extends BasePresente
         if (mLoading != null) {
             mLoading.showMsg(msg);
         }
+    }
+
+    /**
+     * 返回给Presenter层，方便Presenter层在请求网络时处理生命周期相关的问题
+     * 如果使用MVP模式的Fragment一定要继承{@link com.trello.rxlifecycle4.components.RxFragment}或者集成本类即{@link BaseMvpFragment}
+     * 不然本方法将抛出{@link ClassCastException}
+     *
+     * @return Activity生命周期事件
+     */
+    @NonNull
+    @Override
+    public LifecycleProvider<Lifecycle.Event> getLifecycleProvider() {
+        return AndroidLifecycle.createLifecycleProvider(this);
     }
 
 

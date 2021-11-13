@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
 
 import com.trello.rxlifecycle4.components.RxFragment;
 
@@ -16,11 +17,11 @@ import com.trello.rxlifecycle4.components.RxFragment;
  * <p>
  * 注释：简单的一个基类，如果页面简单则可以绕过{@link BaseMvpFragment} 直接集成该类。从而实现简单的页面展示
  */
-public abstract class BaseFragment extends RxFragment {
+public abstract class BaseFragment extends Fragment {
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(layoutId(), container);
+        return inflater.inflate(layoutId(), container, false);
     }
 
 

@@ -2,6 +2,7 @@ package com.library.zldbaselibrary.net;
 
 import com.library.zldbaselibrary.common.BaseLibrary;
 import com.library.zldbaselibrary.config.NetWorkConfig;
+import com.trello.rxlifecycle4.LifecycleProvider;
 
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -84,7 +85,7 @@ public class RetrofitFactory {
 
     /**
      * 创建Api接口，调用此方法之后再去调用具体的后端接口并得到一个Observable<T>对象
-     * 然后配合{@link Http#execute(Observable, CallBack, Observable)}方法进行请求
+     * 然后配合{@link Http#request(Observable, CallBack, LifecycleProvider)}}方法进行请求
      * 操作
      */
     public <T> T create(Class<T> clazz) {

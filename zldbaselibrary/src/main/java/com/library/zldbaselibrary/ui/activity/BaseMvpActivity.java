@@ -5,14 +5,14 @@ import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.lifecycle.Lifecycle;
 
 import com.library.zldbaselibrary.presenter.BasePresenter;
 import com.library.zldbaselibrary.ui.dialog.CommonLoading;
 import com.library.zldbaselibrary.ui.dialog.ILoading;
 import com.library.zldbaselibrary.view.BaseView;
-import com.trello.rxlifecycle4.android.ActivityEvent;
-
-import io.reactivex.rxjava3.core.Observable;
+import com.trello.lifecycle4.android.lifecycle.AndroidLifecycle;
+import com.trello.rxlifecycle4.LifecycleProvider;
 
 abstract public class BaseMvpActivity<V extends BaseView, P extends BasePresenter<V>> extends BaseActivity implements BaseView {
 
@@ -125,7 +125,7 @@ abstract public class BaseMvpActivity<V extends BaseView, P extends BasePresente
      */
     @NonNull
     @Override
-    public Observable<ActivityEvent> getLifecycleEvent() {
-        return lifecycle();
+    public LifecycleProvider<Lifecycle.Event> getLifecycleProvider() {
+        return AndroidLifecycle.createLifecycleProvider(this);
     }
 }

@@ -4,7 +4,10 @@ import android.content.Context;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.lifecycle.Lifecycle;
 
+import com.trello.rxlifecycle4.LifecycleProvider;
+import com.trello.rxlifecycle4.LifecycleTransformer;
 import com.trello.rxlifecycle4.android.ActivityEvent;
 
 import io.reactivex.rxjava3.core.Observable;
@@ -44,6 +47,7 @@ public interface BaseView {
      * @return Activity的生命周期事件
      */
     @NonNull
-    Observable<ActivityEvent> getLifecycleEvent();
+    LifecycleProvider<Lifecycle.Event> getLifecycleProvider();
+
 
 }

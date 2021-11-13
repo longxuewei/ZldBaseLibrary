@@ -7,10 +7,6 @@ import androidx.annotation.Nullable;
 import androidx.lifecycle.Lifecycle;
 
 import com.trello.rxlifecycle4.LifecycleProvider;
-import com.trello.rxlifecycle4.LifecycleTransformer;
-import com.trello.rxlifecycle4.android.ActivityEvent;
-
-import io.reactivex.rxjava3.core.Observable;
 
 
 /**

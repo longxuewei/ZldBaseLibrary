@@ -9,8 +9,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import com.trello.rxlifecycle4.components.RxFragment;
-
 /**
  * 作者：Lxw
  * 时间：2021-11-09 16:18

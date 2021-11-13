@@ -6,7 +6,6 @@ import android.view.View;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Lifecycle;
 
 import com.library.zldbaselibrary.presenter.BasePresenter;
@@ -15,11 +14,6 @@ import com.library.zldbaselibrary.ui.dialog.ILoading;
 import com.library.zldbaselibrary.view.BaseView;
 import com.trello.lifecycle4.android.lifecycle.AndroidLifecycle;
 import com.trello.rxlifecycle4.LifecycleProvider;
-import com.trello.rxlifecycle4.LifecycleTransformer;
-import com.trello.rxlifecycle4.RxLifecycle;
-import com.trello.rxlifecycle4.android.FragmentEvent;
-
-import io.reactivex.rxjava3.core.Observable;
 
 /**
  * 作者：Lxw

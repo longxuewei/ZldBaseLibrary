@@ -82,7 +82,6 @@ dependencies {
 
     //Rxjava的生命周期控制，防止页面销毁而Rxjava还未完成导致的内存泄漏【https://github.com/trello/RxLifecycle】
     api 'com.trello.rxlifecycle4:rxlifecycle:4.0.2'
-    api 'com.trello.rxlifecycle4:rxlifecycle-components:4.0.2'
     api 'com.trello.rxlifecycle4:rxlifecycle-android-lifecycle:4.0.2'
 
 }

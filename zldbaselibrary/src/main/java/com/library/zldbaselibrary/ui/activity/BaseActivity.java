@@ -1,6 +1,5 @@
 package com.library.zldbaselibrary.ui.activity;
 
-import android.app.Activity;
 import android.content.Context;
 
 import androidx.annotation.NonNull;

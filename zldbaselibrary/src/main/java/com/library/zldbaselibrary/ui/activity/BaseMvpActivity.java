@@ -26,10 +26,7 @@ abstract public class BaseMvpActivity<V extends BaseView, P extends BasePresente
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        //子类返回界面
-        setContentView(layoutId());
-
+        
         //初始化默认的加载框样式
         mLoading = initLoading();
 

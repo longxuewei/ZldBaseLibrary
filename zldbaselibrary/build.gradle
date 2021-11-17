@@ -45,20 +45,20 @@ dependencies {
 
 
     //工具类 【https://github.com/Blankj/AndroidUtilCode】
-    api 'com.blankj:utilcodex:1.30.6'
+    api "com.blankj:utilcodex:1.30.6"
 
     //Adapter 【https://github.com/CymChad/BaseRecyclerViewAdapterHelper】
-    api 'com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.6'
+    api "com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.6"
 
     //下拉刷新/上拉加载更多【https://github.com/scwang90/SmartRefreshLayout】注意：下拉刷新未添加 下拉刷新头 / 上拉加载更多底部，请在App中自行添加；具体样式可以访问前面的网址
-    api 'com.scwang.smart:refresh-layout-kernel:2.0.3'
+    api "com.scwang.smart:refresh-layout-kernel:2.0.3"
 
     //Glide【https://muyangmin.github.io/glide-docs-cn/】
-    api 'com.github.bumptech.glide:glide:4.12.0'
+    api "com.github.bumptech.glide:glide:4.12.0"
     annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
 
     //大图展示【https://github.com/Baseflow/PhotoView】
-    api 'com.github.chrisbanes:PhotoView:2.3.0'
+    api "com.github.chrisbanes:PhotoView:2.3.0"
 
     //代码Shape文件【https://github.com/JavaNoober/BackgroundLibrary】
     api 'com.github.JavaNoober.BackgroundLibrary:libraryx:1.7.2'
@@ -66,7 +66,7 @@ dependencies {
     api "com.orhanobut:hawk:2.0.1"
 
     //弹框【https://github.com/kongzue/DialogX】
-    api 'com.github.kongzue.DialogX:DialogX:0.0.43.beta19'
+    api "com.github.kongzue.DialogX:DialogX:0.0.43.beta19"
 
     //约束布局【https://developer.android.google.cn/training/constraint-layout?hl=zh-cn】
     api "androidx.constraintlayout:constraintlayout:2.1.1"
@@ -78,10 +78,14 @@ dependencies {
 
     //RxJava3配合Retrofits使用【https://github.com/ReactiveX/RxJava】
     api "io.reactivex.rxjava3:rxjava:3.1.2"
-    api 'io.reactivex.rxjava3:rxandroid:3.0.0'
+    api "io.reactivex.rxjava3:rxandroid:3.0.0"
 
     //Rxjava的生命周期控制，防止页面销毁而Rxjava还未完成导致的内存泄漏【https://github.com/trello/RxLifecycle】
-    api 'com.trello.rxlifecycle4:rxlifecycle:4.0.2'
-    api 'com.trello.rxlifecycle4:rxlifecycle-android-lifecycle:4.0.2'
+    api "com.trello.rxlifecycle4:rxlifecycle:4.0.2"
+    api "com.trello.rxlifecycle4:rxlifecycle-android-lifecycle:4.0.2"
+
+    //权限请求框架【https://github.com/permissions-dispatcher/PermissionsDispatcher】
+    api "com.github.permissions-dispatcher:permissionsdispatcher:4.9.1"
+    annotationProcessor "com.github.permissions-dispatcher:permissionsdispatcher-processor:4.9.1"
 
 }

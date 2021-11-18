@@ -18,7 +18,6 @@ public class BaseResp<T> {
     private long serverTime;
 
     /** 状态：1表示成功，其他表示失败 */
-    @SerializedName("error_code")
     private int status;
 
     /** 具体数据 */

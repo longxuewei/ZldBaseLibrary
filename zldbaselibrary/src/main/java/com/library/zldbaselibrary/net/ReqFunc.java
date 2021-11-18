@@ -1,5 +1,6 @@
 package com.library.zldbaselibrary.net;
 
+import com.library.zldbaselibrary.exception.EmptyDataException;
 import com.library.zldbaselibrary.exception.ReqException;
 import com.library.zldbaselibrary.net.resp.BaseResp;
 
@@ -16,10 +17,15 @@ public class ReqFunc<T> implements Function<BaseResp<T>, Observable<T>> {
 
     @Override
     public Observable<T> apply(BaseResp<T> resp) {
-        if (resp.isSuccess()) {
-            return Observable.just(resp.getData());
-        } else {
+        if (!resp.isSuccess()) {
             return Observable.error(new ReqException(resp.getStatus(), resp.getMsg()));
+        }
+
+        T data = resp.getData();
+        if (data != null) {
+            return Observable.just(data);
+        } else {
+            return Observable.error(new EmptyDataException(resp.getStatus(), resp.getMsg()));
         }
     }
 }

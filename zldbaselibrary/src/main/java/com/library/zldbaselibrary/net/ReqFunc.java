@@ -16,7 +16,7 @@ import io.reactivex.rxjava3.functions.Function;
 public class ReqFunc<T> implements Function<BaseResp<T>, Observable<T>> {
 
     @Override
-    public Observable<T> apply(BaseResp<T> resp) {
+    public Observable<T> apply(BaseResp<T> resp) throws Exception {
         if (!resp.isSuccess()) {
             return Observable.error(new ReqException(resp.getStatus(), resp.getMsg()));
         }

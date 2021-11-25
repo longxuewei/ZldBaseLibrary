@@ -1,8 +1,9 @@
 package com.library.zldbaselibrary.net;
 
+import androidx.annotation.NonNull;
+
 import com.library.zldbaselibrary.view.BaseView;
 
-import io.reactivex.rxjava3.annotations.NonNull;
 import io.reactivex.rxjava3.core.Observer;
 import io.reactivex.rxjava3.disposables.Disposable;
 

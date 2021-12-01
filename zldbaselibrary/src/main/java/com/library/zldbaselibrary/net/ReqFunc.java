@@ -1,5 +1,6 @@
 package com.library.zldbaselibrary.net;
 
+import com.google.gson.Gson;
 import com.library.zldbaselibrary.exception.EmptyDataException;
 import com.library.zldbaselibrary.exception.ReqException;
 import com.library.zldbaselibrary.net.resp.BaseResp;
@@ -18,14 +19,14 @@ public class ReqFunc<T> implements Function<BaseResp<T>, Observable<T>> {
     @Override
     public Observable<T> apply(BaseResp<T> resp) throws Exception {
         if (!resp.isSuccess()) {
-            return Observable.error(new ReqException(resp.getStatus(), resp.getMsg(), resp.toString()));
+            return Observable.error(new ReqException(resp.getStatus(), resp.getMsg(), new Gson().toJson(resp)));
         }
 
         T data = resp.getData();
         if (data != null) {
             return Observable.just(data);
         } else {
-            return Observable.error(new EmptyDataException(resp.getStatus(), resp.getMsg(), resp.toString()));
+            return Observable.error(new EmptyDataException(resp.getStatus(), resp.getMsg(), new Gson().toJson(resp)));
         }
     }
 }

@@ -18,14 +18,14 @@ public class ReqFunc<T> implements Function<BaseResp<T>, Observable<T>> {
     @Override
     public Observable<T> apply(BaseResp<T> resp) throws Exception {
         if (!resp.isSuccess()) {
-            return Observable.error(new ReqException(resp.getStatus(), resp.getMsg()));
+            return Observable.error(new ReqException(resp.getStatus(), resp.getMsg(), resp.toString()));
         }
 
         T data = resp.getData();
         if (data != null) {
             return Observable.just(data);
         } else {
-            return Observable.error(new EmptyDataException(resp.getStatus(), resp.getMsg()));
+            return Observable.error(new EmptyDataException(resp.getStatus(), resp.getMsg(), resp.toString()));
         }
     }
 }

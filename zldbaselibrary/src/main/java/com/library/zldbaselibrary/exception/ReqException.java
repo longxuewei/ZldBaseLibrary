@@ -11,10 +11,13 @@ public class ReqException extends Exception {
     private int errorCode;
     /** 错误信息 */
     private String errorMsg;
+    /** 原始json字符串数据 可能为空 */
+    private String originJsonStr;
 
-    public ReqException(int errorCode, String errorMsg) {
+    public ReqException(int errorCode, String errorMsg, String originJsonStr) {
         this.errorCode = errorCode;
         this.errorMsg = errorMsg;
+        this.originJsonStr = originJsonStr;
     }
 
     public int getErrorCode() {
@@ -31,5 +34,13 @@ public class ReqException extends Exception {
 
     public void setErrorMsg(String errorMsg) {
         this.errorMsg = errorMsg;
+    }
+
+    public String getOriginJsonStr() {
+        return originJsonStr;
+    }
+
+    public void setOriginJsonStr(String originJsonStr) {
+        this.originJsonStr = originJsonStr;
     }
 }

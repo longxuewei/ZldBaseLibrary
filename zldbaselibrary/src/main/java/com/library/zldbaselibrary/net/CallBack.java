@@ -33,6 +33,7 @@ abstract public class CallBack<T> implements Observer<T> {
     public void onError(@NonNull Throwable e) {
         if (mView != null) {
             mView.dismissLoadingDialog();
+            mView.onError(e);
         }
     }
 

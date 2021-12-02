@@ -38,6 +38,15 @@ public interface BaseView {
 
 
     /**
+     * 网络请求出错 界面可实现该方法进行对应的处理，错误类型包括
+     * {@link com.library.zldbaselibrary.exception.ReqException}
+     * {@link com.library.zldbaselibrary.exception.EmptyDataException}
+     *
+     * @param e 具体的错误信息
+     */
+    void onError(Throwable e);
+
+    /**
      * 将界面的生命周期事件返回给P层，方便P层在访问网络时管理请求的生命周期。
      *
      * @return Activity的生命周期事件

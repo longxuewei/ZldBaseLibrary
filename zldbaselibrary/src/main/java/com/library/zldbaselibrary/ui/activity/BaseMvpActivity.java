@@ -7,6 +7,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.lifecycle.Lifecycle;
 
+import com.library.zldbaselibrary.exception.EmptyDataException;
+import com.library.zldbaselibrary.exception.ReqException;
 import com.library.zldbaselibrary.presenter.BasePresenter;
 import com.library.zldbaselibrary.ui.dialog.CommonLoading;
 import com.library.zldbaselibrary.ui.dialog.ILoading;
@@ -26,7 +28,7 @@ abstract public class BaseMvpActivity<V extends BaseView, P extends BasePresente
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        
+
         //初始化默认的加载框样式
         mLoading = initLoading();
 
@@ -114,6 +116,17 @@ abstract public class BaseMvpActivity<V extends BaseView, P extends BasePresente
         }
     }
 
+    /**
+     * 网络请求出错 界面可实现该方法进行对应的处理，错误类型包括
+     * {@link ReqException}
+     * {@link EmptyDataException}
+     *
+     * @param e 具体的错误信息
+     */
+    @Override
+    public void onError(Throwable e) {
+
+    }
 
     /**
      * 返回给Presenter层，方便Presenter层在请求网络时处理生命周期相关的问题

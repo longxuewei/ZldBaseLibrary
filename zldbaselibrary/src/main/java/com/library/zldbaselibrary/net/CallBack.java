@@ -23,6 +23,10 @@ abstract public class CallBack<T> implements Observer<T> {
         this.mView = view;
     }
 
+    @Override
+    public void onNext(@NonNull T t) {
+        
+    }
 
     /**
      * 仅做最基础的取消加载框

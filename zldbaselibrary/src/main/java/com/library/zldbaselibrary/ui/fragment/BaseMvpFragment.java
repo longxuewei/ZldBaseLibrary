@@ -8,6 +8,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.lifecycle.Lifecycle;
 
+import com.library.zldbaselibrary.exception.EmptyDataException;
+import com.library.zldbaselibrary.exception.ReqException;
 import com.library.zldbaselibrary.presenter.BasePresenter;
 import com.library.zldbaselibrary.ui.dialog.CommonLoading;
 import com.library.zldbaselibrary.ui.dialog.ILoading;
@@ -95,6 +97,18 @@ public abstract class BaseMvpFragment<V extends BaseView, P extends BasePresente
         if (mLoading != null) {
             mLoading.showMsg(msg);
         }
+    }
+
+    /**
+     * 网络请求出错 界面可实现该方法进行对应的处理，错误类型包括
+     * {@link ReqException}
+     * {@link EmptyDataException}
+     *
+     * @param e 具体的错误信息
+     */
+    @Override
+    public void onError(Throwable e) {
+
     }
 
     /**

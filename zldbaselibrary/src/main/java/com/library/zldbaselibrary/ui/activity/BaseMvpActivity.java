@@ -72,11 +72,9 @@ abstract public class BaseMvpActivity<V extends BaseView, P extends BasePresente
     @Override
     protected void onDestroy() {
         super.onDestroy();
-
         //与Presenter层断开链接
         if (mPresenter != null) {
             mPresenter.detach();
-            mPresenter = null;
         }
     }
 

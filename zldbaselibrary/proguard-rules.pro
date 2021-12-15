@@ -120,3 +120,17 @@
 
 
 
+#========================Gson(开始)========================
+#该目录下由Gson转换的Bean将不能被混淆
+-keepattributes *Annotation*
+-keep class sun.misc.Unsafe { *; }
+-keep class com.google.gson.stream.** { *; }
+-keep class * implements com.google.gson.TypeAdapterFactory
+-keep class * implements com.google.gson.JsonSerializer
+-keep class * implements com.google.gson.JsonDeserializer
+-keep class com.library.zldbaselibrary.net.resp.**{*;}
+-keep class com.google.gson.**{*;}
+#========================Gson(结束)========================
+
+
+

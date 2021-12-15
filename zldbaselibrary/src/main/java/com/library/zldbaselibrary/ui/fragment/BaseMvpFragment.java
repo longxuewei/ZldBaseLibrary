@@ -129,11 +129,12 @@ public abstract class BaseMvpFragment<V extends BaseView, P extends BasePresente
      * 资源释放
      */
     @Override
-    public void onDetach() {
-        super.onDetach();
+    public void onDestroy() {
+        super.onDestroy();
         //与Presenter层断开链接
         if (mPresenter != null) {
             mPresenter.detach();
+            mPresenter = null;
         }
     }
 }

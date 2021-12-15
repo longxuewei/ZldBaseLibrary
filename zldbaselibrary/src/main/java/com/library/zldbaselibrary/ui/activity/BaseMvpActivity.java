@@ -76,6 +76,7 @@ abstract public class BaseMvpActivity<V extends BaseView, P extends BasePresente
         //与Presenter层断开链接
         if (mPresenter != null) {
             mPresenter.detach();
+            mPresenter = null;
         }
     }
 

@@ -60,4 +60,19 @@ public class Http {
                 .subscribe(callBack);
     }
 
+
+    /**
+     * 执行请求，但不需要同生命周期绑定，就算界面销毁也将继续执行。调用者请注意防止因为界面销毁导致的崩溃
+     *
+     * @param observable 由Retrofit构建的 Observable 要构建一个请求的Observable，请参考{@link RetrofitFactory#create(Class)}
+     * @param callBack   请求回调
+     * @param <T>        这是网络请求的结果泛型，例如网络请求最终会返回一个 用户信息，那么这里就是 UserInfo
+     */
+    public <T> void request(Observable<BaseResp<T>> observable, CallBack<T> callBack) {
+        observable.flatMap(new ReqFunc<>())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribeOn(Schedulers.io())
+                .subscribe(callBack);
+    }
+
 }
